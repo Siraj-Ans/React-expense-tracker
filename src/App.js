@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 import "./App.css";
 
@@ -25,9 +26,16 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expenseData) => {
+    expenses.push(expenseData);
+
+    console.log("Printing expense data from app component!");
+    console.log(expenseData);
+  };
+
   return (
     <div>
-      <h1>This is an App component!</h1>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
